@@ -16,7 +16,7 @@ npm run lint:fix  # Auto-fix lint issues with oxlint
 npm run fmt       # Format all files with oxfmt (writes in place)
 ```
 
-**After editing any file, always run `npm run fmt`, `npm run lint`, and `npm run check`.**
+**After editing any file, always run `npm run lint` and `npm run check`.**
 
 ## Architecture
 
