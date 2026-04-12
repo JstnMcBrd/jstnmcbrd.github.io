@@ -22,4 +22,4 @@ npm run fmt       # Format all files with oxfmt
 
 ## Content
 
-Projects are defined as Markdown files in `src/content/projects/`. Each file requires `title`, `description`, and `date` fields; `url`, `repo`, and `tags` are optional.
+Projects are defined as Markdown files in `src/content/projects/`. Each file requires `title`, `description`, and `date` fields; `links` and `tags` are optional.

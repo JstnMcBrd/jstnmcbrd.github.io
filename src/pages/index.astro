@@ -14,8 +14,24 @@ const projects = (await getCollection("projects")).sort(
       Justin McBride
     </h1>
     <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-      Software developer. This is a brief bio — replace this with a few sentences
-      about yourself, your background, and what you work on.
+      Graduate student in Computer Science at BYU. I previously worked as a
+      software engineer at
+      <a
+        href="https://www.linkedin.com/company/qualtrics/" 
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Qualtrics
+      </a>
+      and
+      <a
+        href="https://www.linkedin.com/company/redo-tech/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Redo.
+      </a>
+      I build software with TypeScript, Python, and Rust.
     </p>
   </section>
 
@@ -31,8 +47,7 @@ const projects = (await getCollection("projects")).sort(
           <ProjectCard
             title={project.data.title}
             description={project.data.description}
-            url={project.data.url}
-            repo={project.data.repo}
+            links={project.data.links}
             tags={project.data.tags}
           />
         ))}
