@@ -1,41 +1,58 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   title: string;
   description: string;
-  url?: string | undefined;
-  repo?: string | undefined;
+  links?: Record<string, string> | undefined;
   tags: string[];
 }
 
-const { title, description, url, repo, tags } = Astro.props;
+const { title, description, links, tags } = Astro.props;
 
-// Prefer the live URL; fall back to repo if only a repo is provided
-const primaryLink = url ?? repo;
+const linkEntries = links ? Object.entries(links) : [];
+
+const ICON_MAP: Record<string, string> = {
+  "github.com": "simple-icons:github",
+  "npmjs.com": "simple-icons:npm",
+  "gamejolt.com": "simple-icons:gamejolt",
+  "gamejolt.io": "simple-icons:gamejolt",
+};
+
+function getIcon(href: string): string | null {
+  try {
+    const parts = new URL(href).hostname.split(".");
+    const rootDomain = parts.slice(-2).join(".");
+    return ICON_MAP[rootDomain] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+const FALLBACK_ICON = "lucide:external-link";
 ---
 
 <article class="py-5 border-b border-neutral-200 dark:border-neutral-800 last:border-0">
   <div class="flex items-baseline justify-between gap-4">
-    {primaryLink ? (
-      <a
-        href={primaryLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-medium text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4"
-      >
-        {title}
-      </a>
-    ) : (
-      <span class="font-medium text-neutral-900 dark:text-neutral-100">{title}</span>
-    )}
-    {url && repo && (
-      <a
-        href={repo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-xs text-neutral-500 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors shrink-0"
-      >
-        source
-      </a>
+    <span class="font-medium text-neutral-900 dark:text-neutral-100">{title}</span>
+    {linkEntries.length > 0 && (
+      <div class="flex items-center gap-3 shrink-0">
+        {linkEntries.map(([name, href]) => {
+          const icon = getIcon(href) ?? FALLBACK_ICON;
+          return (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={name}
+              aria-label={name}
+              class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+            >
+              <Icon name={icon} class="w-4 h-4" />
+            </a>
+          );
+        })}
+      </div>
     )}
   </div>
   <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
