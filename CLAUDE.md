@@ -8,7 +8,7 @@ Keep `CLAUDE.md` and `README.md` up-to-date whenever you modify the project.
 
 ```bash
 npm run dev       # Start dev server at localhost:4321
-npm run build     # Type-check and build to dist/
+npm run build     # Build to dist/
 npm run preview   # Preview the production build locally
 npm run check     # Type-check all Astro/TS files via astro check
 ```

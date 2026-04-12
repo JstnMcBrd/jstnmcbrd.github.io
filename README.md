@@ -12,7 +12,7 @@ Personal portfolio site built with [Astro](https://astro.build) v6, Tailwind CSS
 
 ```bash
 npm run dev       # Start dev server
-npm run build     # Type-check and build to `dist`
+npm run build     # Build to `dist`
 npm run preview   # Preview the production build locally
 npm run check     # Type-check all Astro/TS files
 ```
