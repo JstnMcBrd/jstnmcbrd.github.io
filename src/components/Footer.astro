@@ -1,43 +1,44 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const socialLinks = [
-  {
-    label: "GitHub",
-    href: "https://github.com/JstnMcBrd",
-    icon: "simple-icons:github",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/jstnmcbrd",
-    icon: "simple-icons:linkedin",
-  },
-  {
-    label: "X / Twitter",
-    href: "https://x.com/JstnMcBrd",
-    icon: "simple-icons:x",
-  },
-  {
-    label: "GameJolt",
-    href: "https://gamejolt.com/@JustCorp",
-    icon: "simple-icons:gamejolt",
-  },
+const techStack = [
+  { label: "Astro", href: "https://astro.build", icon: "simple-icons:astro" },
+  { label: "Tailwind CSS", href: "https://tailwindcss.com", icon: "simple-icons:tailwindcss" },
+  { label: "TypeScript", href: "https://www.typescriptlang.org", icon: "simple-icons:typescript" },
 ];
 ---
 
 <footer class="w-full border-t border-neutral-200 dark:border-neutral-800">
-  <div class="max-w-2xl mx-auto px-6 py-6 flex items-center justify-center gap-5">
-    {socialLinks.map((link) => (
-      <a
-        href={link.href}
-        aria-label={link.label}
-        title={link.label}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100 transition-colors"
-      >
-        <Icon name={link.icon} class="w-5 h-5" />
-      </a>
-    ))}
+  <div class="max-w-2xl mx-auto px-6 py-6 flex flex-col items-center gap-3">
+    <p class="flex items-center gap-2.5 text-sm text-neutral-500 dark:text-neutral-500">
+      Made with
+      {techStack.map((tech) => (
+        <a
+          href={tech.href}
+          title={tech.label}
+          aria-label={tech.label}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+        >
+          <Icon name={tech.icon} class="w-4 h-4" />
+        </a>
+      ))}
+      and
+      <span title="Love" class="hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors">
+        <!-- Heart svg -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="w-4 h-4" role="img" aria-label="Love">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+        </svg>
+      </span>
+    </p>
+    <a
+      href="https://github.com/JstnMcBrd/jstnmcbrd.github.io"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-sm text-neutral-400 dark:text-neutral-600 hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
+    >
+      {"<Source/>"}
+    </a>
   </div>
 </footer>
