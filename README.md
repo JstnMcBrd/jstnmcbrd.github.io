@@ -1,4 +1,4 @@
-# jstnmcbrd.github.io
+# <img src="public/favicon.svg" width="28" height="28">&nbsp; jstnmcbrd.github.io
 
 Personal portfolio site built with [Astro](https://astro.build) v6, Tailwind CSS v4, and deployed to GitHub Pages.
 
