@@ -8,7 +8,17 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
-        "simple-icons": ["github", "linkedin", "x", "gamejolt", "npm"],
+        "simple-icons": [
+          "github",
+          "linkedin",
+          "x",
+          "huggingface",
+          "gamejolt",
+          "npm",
+          "astro",
+          "tailwindcss",
+          "typescript",
+        ],
         lucide: ["external-link"],
       },
     }),
