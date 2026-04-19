@@ -19,7 +19,7 @@
     "astro-icon": "^1.1.5",
     "oxfmt": "^0.44.0",
     "oxlint": "^1.59.0",
-    "oxlint-tsgolint": "^0.20.0",
+    "oxlint-tsgolint": "^0.21.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   },
