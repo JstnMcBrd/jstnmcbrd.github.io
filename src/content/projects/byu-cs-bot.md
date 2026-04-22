@@ -7,6 +7,6 @@ tags:
   - TypeScript
   - Docker
   - Discord
-  - Teamwork
+  - Collaboration
 date: 2022-09-01
 ---
