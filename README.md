@@ -16,7 +16,6 @@ npm run build     # Build to `dist`
 npm run preview   # Preview the production build locally
 npm run check     # Type-check all Astro/TS files
 npm run lint      # Lint with oxlint
-npm run lint:fix  # Auto-fix lint issues with oxlint
 npm run fmt       # Format all files with oxfmt
 ```
 

@@ -7,7 +7,6 @@
     "preview": "astro preview",
     "check": "astro check",
     "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
     "fmt": "oxfmt"
   },
   "devDependencies": {
