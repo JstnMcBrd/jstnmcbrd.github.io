@@ -23,3 +23,7 @@ npm run fmt       # Format all files with oxfmt
 ## Content
 
 Projects are defined as Markdown files in `src/content/projects/`. Each file requires `title`, `description`, and `date` fields; `links` and `tags` are optional.
+
+## Contributing
+
+See [`AGENTS.md`](AGENTS.md) for codebase guidance, architecture notes, and workflow instructions for AI coding agents.

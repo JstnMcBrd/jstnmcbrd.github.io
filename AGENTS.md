@@ -1,8 +1,8 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding agents working with code in this repository.
 
-Keep `CLAUDE.md` and `README.md` up-to-date whenever you modify the project.
+Keep `AGENTS.md` and `README.md` up-to-date whenever you modify the project.
 
 ## Commands
 
@@ -16,7 +16,7 @@ npm run lint:fix  # Auto-fix lint issues with oxlint
 npm run fmt       # Format all files with oxfmt (writes in place)
 ```
 
-**After editing any file, always run `npm run lint` and `npm run check`.**
+**After editing files, always run `npm run fmt`, `npm run lint`, and `npm run check`.**
 
 ## Architecture
 
