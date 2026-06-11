@@ -11,6 +11,5 @@ tags:
   - Web Workers
   - Vite
   - Agentic Coding
-startDate: 2026-04-01
 date: 2026-06-01
 ---

@@ -9,7 +9,6 @@ const projects = defineCollection({
     description: z.string(),
     links: z.record(z.string(), z.url()).optional(),
     tags: z.array(z.string()).default([]),
-    startDate: z.coerce.date().optional(),
     date: z.coerce.date(),
   }),
 });
