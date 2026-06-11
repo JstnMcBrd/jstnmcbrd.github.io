@@ -8,6 +8,7 @@ tags:
   - Astro
   - TypeScript
   - Tailwind CSS
+  - Vite
   - Agentic Coding
 date: 2026-04-11
 ---
