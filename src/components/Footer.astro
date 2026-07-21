@@ -1,10 +1,12 @@
 ---
-import { Icon } from "astro-icon/components";
+import AstroIcon from "~icons/simple-icons/astro";
+import TailwindcssIcon from "~icons/simple-icons/tailwindcss";
+import TypescriptIcon from "~icons/simple-icons/typescript";
 
 const techStack = [
-  { label: "Astro", href: "https://astro.build", icon: "simple-icons:astro" },
-  { label: "Tailwind CSS", href: "https://tailwindcss.com", icon: "simple-icons:tailwindcss" },
-  { label: "TypeScript", href: "https://www.typescriptlang.org", icon: "simple-icons:typescript" },
+  { label: "Astro", href: "https://astro.build", Icon: AstroIcon },
+  { label: "Tailwind CSS", href: "https://tailwindcss.com", Icon: TailwindcssIcon },
+  { label: "TypeScript", href: "https://www.typescriptlang.org", Icon: TypescriptIcon },
 ];
 ---
 
@@ -21,7 +23,7 @@ const techStack = [
           rel="noopener noreferrer"
           class="hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
         >
-          <Icon name={tech.icon} class="w-4 h-4" />
+          <tech.Icon class="w-4 h-4" />
         </a>
       ))}
       and

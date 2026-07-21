@@ -1,5 +1,8 @@
 ---
-import { Icon } from "astro-icon/components";
+import GameJoltIcon from "~icons/simple-icons/gamejolt";
+import GithubIcon from "~icons/simple-icons/github";
+import NpmIcon from "~icons/simple-icons/npm";
+import ExternalLinkIcon from "~icons/lucide/external-link";
 
 interface Props {
   title: string;
@@ -12,23 +15,21 @@ const { title, description, links, tags } = Astro.props;
 
 const linkEntries = links ? Object.entries(links) : [];
 
-const ICON_MAP: Record<string, string> = {
-  "github.com": "simple-icons:github",
-  "npmjs.com": "simple-icons:npm",
-  "gamejolt.io": "simple-icons:gamejolt",
+const ICON_MAP: Record<string, typeof GithubIcon> = {
+  "github.com": GithubIcon,
+  "npmjs.com": NpmIcon,
+  "gamejolt.io": GameJoltIcon,
 };
 
-function getIcon(href: string): string | null {
+function getIcon(href: string): typeof GithubIcon {
   try {
     const parts = new URL(href).hostname.split(".");
     const rootDomain = parts.slice(-2).join(".");
-    return ICON_MAP[rootDomain] ?? null;
+    return ICON_MAP[rootDomain] ?? ExternalLinkIcon;
   } catch {
-    return null;
+    return ExternalLinkIcon;
   }
 }
-
-const FALLBACK_ICON = "lucide:external-link";
 ---
 
 <article class="py-5 border-b border-neutral-200 dark:border-neutral-800 last:border-0">
@@ -37,7 +38,7 @@ const FALLBACK_ICON = "lucide:external-link";
     {linkEntries.length > 0 && (
       <div class="flex items-center gap-3 shrink-0">
         {linkEntries.map(([name, href]) => {
-          const icon = getIcon(href) ?? FALLBACK_ICON;
+          const LinkIcon = getIcon(href);
           return (
             <a
               href={href}
@@ -47,7 +48,7 @@ const FALLBACK_ICON = "lucide:external-link";
               aria-label={name}
               class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
             >
-              <Icon name={icon} class="w-4 h-4" />
+              <LinkIcon class="w-4 h-4" />
             </a>
           );
         })}

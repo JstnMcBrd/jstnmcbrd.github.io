@@ -1,26 +1,29 @@
 ---
-import { Icon } from "astro-icon/components";
+import GithubIcon from "~icons/simple-icons/github";
+import HuggingfaceIcon from "~icons/simple-icons/huggingface";
+import LinkedinIcon from "~icons/simple-icons/linkedin";
+import XIcon from "~icons/simple-icons/x";
 
 const socialLinks = [
   {
     label: "GitHub",
     href: "https://github.com/JstnMcBrd",
-    icon: "simple-icons:github",
+    Icon: GithubIcon,
   },
   {
     label: "Hugging Face",
     href: "https://huggingface.co/JstnMcBrd",
-    icon: "simple-icons:huggingface",
+    Icon: HuggingfaceIcon,
   },
   {
     label: "LinkedIn",
     href: "https://linkedin.com/in/jstnmcbrd",
-    icon: "simple-icons:linkedin",
+    Icon: LinkedinIcon,
   },
   {
     label: "X / Twitter",
     href: "https://x.com/JstnMcBrd",
-    icon: "simple-icons:x",
+    Icon: XIcon,
   },
 ];
 ---
@@ -41,7 +44,7 @@ const socialLinks = [
             rel="noopener noreferrer"
             class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100 transition-colors"
           >
-            <Icon name={link.icon} class="w-4 h-4" />
+            <link.Icon class="w-4 h-4" />
           </a>
         </li>
       ))}
