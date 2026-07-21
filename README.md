@@ -6,7 +6,7 @@ Personal portfolio site built with [Astro](https://astro.build) v6, [Tailwind CS
 
 - **Astro v6** — static site generation
 - **Tailwind CSS v4** — via `@tailwindcss/vite` plugin (no config file)
-- **astro-icon** — SVG icons from the `simple-icons` and `lucide` sets
+- **unplugin-icons** — SVG icons from the `simple-icons` and `lucide` sets
 
 ## Contributing
 

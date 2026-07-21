@@ -1,29 +1,11 @@
 import tailwindcss from "@tailwindcss/vite";
-import icon from "astro-icon";
 import { defineConfig } from "astro/config";
+import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://jstnmcbrd.github.io",
-  integrations: [
-    icon({
-      include: {
-        "simple-icons": [
-          "github",
-          "linkedin",
-          "x",
-          "huggingface",
-          "gamejolt",
-          "npm",
-          "astro",
-          "tailwindcss",
-          "typescript",
-        ],
-        lucide: ["external-link"],
-      },
-    }),
-  ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), Icons({ compiler: "astro" })],
   },
 });
