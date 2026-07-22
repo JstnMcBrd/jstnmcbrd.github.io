@@ -19,7 +19,7 @@ npm run fmt       # Format all files with oxfmt (writes in place)
 
 ## Architecture
 
-This is a personal portfolio site built with [Astro](https://astro.build) v6, Tailwind CSS v4 (via `@tailwindcss/vite`), and `unplugin-icons` for SVG icons from the `simple-icons` and `lucide` sets.
+This is a personal portfolio site built with [Astro](https://astro.build), Tailwind CSS (via `@tailwindcss/vite`), and `unplugin-icons` for SVG icons from the `simple-icons` and `lucide` sets.
 
 **Content layer** — Projects are defined as Markdown files in `src/content/projects/`. The schema is in [src/content.config.ts](src/content.config.ts): each file requires `title`, `description`, and `date`; `links` and `tags` are optional. The index page queries this collection via `getCollection('projects')` and sorts by date descending.
 
@@ -27,4 +27,4 @@ This is a personal portfolio site built with [Astro](https://astro.build) v6, Ta
 
 **Icons** — `unplugin-icons` is wired in as a Vite plugin in `astro.config.ts`. Import icons individually as components from `~icons/<collection>/<icon>` and render as `<GithubIcon class="w-4 h-4" />`; only imported icons are bundled.
 
-**Styling** — Tailwind v4 is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`.
+**Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`.
