@@ -28,3 +28,5 @@ This is a personal portfolio site built with [Astro](https://astro.build), Tailw
 **Icons** — `unplugin-icons` is wired in as a Vite plugin in `astro.config.ts`. Import icons individually as components from `~icons/<collection>/<icon>` and render as `<GithubIcon class="w-4 h-4" />`; only imported icons are bundled.
 
 **Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`.
+
+**TypeScript** — A single [tsconfig.json](tsconfig.json) covers everything — browser files in `src` and Node `*.config.ts` files in root. Browser and `node` types are shared for all files, matching Astro's own convention. Take care to not use Node-specific globals in browser files or browser-specific globals in Node files, because TypeScript will not catch it.
