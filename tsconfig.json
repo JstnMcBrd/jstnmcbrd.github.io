@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "types": ["unplugin-icons/types/astro"]
+    // Note: mixing Node and browser types could be dangerous, but it's the recommended approach for Astro
+    "types": ["unplugin-icons/types/astro", "node"]
   }
 }
