@@ -1,6 +1,6 @@
 ---
 title: pong-wars
-description: Multi-team Pong simulation that runs physics and rendering entirely on the GPU with WebGPU. Rewritten from an earlier Rust/WebAssembly and Web Workers version.
+description: Multi-team Pong simulation using WebGPU shaders for high performance in the browser. Rewritten from an earlier version that used Rust/WebAssembly and Web Workers.
 links:
   Website: https://jstnmcbrd.github.io/pong-wars
   Source: https://github.com/JstnMcBrd/pong-wars
