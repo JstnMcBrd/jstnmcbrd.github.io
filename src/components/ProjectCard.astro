@@ -34,7 +34,7 @@ function getIcon(href: string): typeof GithubIcon {
 
 <article class="py-5 border-b border-neutral-200 dark:border-neutral-800 last:border-0">
   <div class="flex items-baseline justify-between gap-4">
-    <span class="font-medium text-neutral-900 dark:text-neutral-100">{title}</span>
+    <h3 class="font-medium text-neutral-900 dark:text-neutral-100">{title}</h3>
     {linkEntries.length > 0 && (
       <div class="flex items-center gap-3 shrink-0">
         {linkEntries.map(([name, href]) => {
