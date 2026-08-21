@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const linkClass =
+  "text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors";
+
+const recoveryLinks = [
+  { href: "/", label: "Home", note: "the full list of projects" },
+  { href: "/sitemap.xml", label: "Sitemap", note: "every indexable URL on this site" },
+  { href: "/llms.txt", label: "llms.txt", note: "a plain-text summary written for agents" },
+];
+---
+
+<BaseLayout
+  title="Page not found — Justin McBride"
+  description="That page does not exist. This site is a single-page portfolio; start at the home page, the sitemap, or llms.txt."
+  noindex
+>
+  <section>
+    <h1 class="text-2xl font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
+      Page not found
+    </h1>
+    <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+      There is nothing at this address. This site is a small single-page
+      portfolio, so almost everything worth reading lives on the home page.
+    </p>
+
+    <h2 class="mt-8 mb-3 text-sm font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-500">
+      Where to look next
+    </h2>
+    <ul class="list-none p-0 m-0 flex flex-col gap-2">
+      {recoveryLinks.map((link) => (
+        <li class="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+          <a href={link.href} class={linkClass}>{link.label}</a>
+          <span class="text-neutral-500 dark:text-neutral-500"> — {link.note}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

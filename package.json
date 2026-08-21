@@ -6,6 +6,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "test": "node --test \"test/**/*.test.ts\"",
     "lint": "oxlint",
     "fmt": "oxfmt"
   },
