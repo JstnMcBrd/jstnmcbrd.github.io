@@ -1,0 +1,15 @@
+---
+import { ICON_SYMBOLS } from "../icons";
+---
+
+{/*
+  Every icon, defined once; `<use>` elsewhere on the page references these by id.
+  Hidden with an inline style rather than the `hidden` attribute, which browsers
+  only honour on HTML elements — an unstyled render would otherwise show the
+  whole sprite.
+*/}
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
+  {ICON_SYMBOLS.map((symbol) => (
+    <symbol id={symbol.id} viewBox={symbol.viewBox} set:html={symbol.body} />
+  ))}
+</svg>

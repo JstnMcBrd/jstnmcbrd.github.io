@@ -1,0 +1,25 @@
+---
+import { iconId, type IconName } from "../icons";
+
+interface Props {
+  name: IconName;
+  /** Sizing classes are required — a `<use>` reference has no intrinsic size. */
+  class: string;
+  role?: astroHTML.JSX.AriaRole;
+  "aria-label"?: string;
+}
+
+const { name, class: className, role, "aria-label": ariaLabel } = Astro.props;
+
+// Decorative by default. An icon given a role or a label is announced instead.
+const decorative = role === undefined && ariaLabel === undefined;
+---
+
+<svg
+  class={className}
+  role={role}
+  aria-label={ariaLabel}
+  aria-hidden={decorative ? "true" : undefined}
+>
+  <use href={`#${iconId(name)}`} />
+</svg>

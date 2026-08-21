@@ -25,7 +25,9 @@ This is a personal portfolio site built with [Astro](https://astro.build), Tailw
 
 **Layout** — `BaseLayout.astro` wraps every page with a `<Header>`, `<Footer>`, and a centered `max-w-2xl` main column. Pages pass optional `title` and `description` props for `<head>` metadata.
 
-**Icons** — `unplugin-icons` is wired in as a Vite plugin in `astro.config.ts`. Import icons individually as components from `~icons/<collection>/<icon>` and render as `<GithubIcon class="w-4 h-4" />`; only imported icons are bundled.
+**Icons** — `unplugin-icons` is wired in as a Vite plugin in `astro.config.ts`, but icons are imported as raw SVG (`~icons/<collection>/<icon>?raw`) in [src/icons.ts](src/icons.ts) rather than as components. `IconSprite.astro` emits each one once as a `<symbol>` at the end of `<body>`, and `<Icon name="github" class="w-4 h-4" />` references it with `<use>`. Rendering icons as components inlined the same path data on every occurrence — the GitHub mark alone appeared nine times on the homepage.
+
+To add an icon, add a `?raw` import to `ICON_SOURCES` in `src/icons.ts`; `IconName` and the sprite pick it up automatically. Sizing classes are required at every call site, because a `<use>` reference has no intrinsic size.
 
 **Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`.
 

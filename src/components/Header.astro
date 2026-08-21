@@ -1,22 +1,18 @@
 ---
-import GithubIcon from "~icons/simple-icons/github";
-import HuggingfaceIcon from "~icons/simple-icons/huggingface";
-import LinkedinIcon from "~icons/simple-icons/linkedin";
-import XIcon from "~icons/simple-icons/x";
-import ExternalLinkIcon from "~icons/lucide/external-link";
-
+import Icon from "./Icon.astro";
+import type { IconName } from "../icons";
 import { socialLinks } from "../profile";
 
-const ICONS: Record<string, typeof GithubIcon> = {
-  GitHub: GithubIcon,
-  "Hugging Face": HuggingfaceIcon,
-  LinkedIn: LinkedinIcon,
-  "X / Twitter": XIcon,
+const ICONS: Record<string, IconName> = {
+  GitHub: "github",
+  "Hugging Face": "huggingface",
+  LinkedIn: "linkedin",
+  "X / Twitter": "x",
 };
 
 const links = socialLinks.map((link) => ({
   ...link,
-  Icon: ICONS[link.label] ?? ExternalLinkIcon,
+  icon: ICONS[link.label] ?? "external-link",
 }));
 ---
 
@@ -36,7 +32,7 @@ const links = socialLinks.map((link) => ({
             rel="noopener noreferrer"
             class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100 transition-colors"
           >
-            <link.Icon class="w-4 h-4" />
+            <Icon name={link.icon} class="w-4 h-4" />
           </a>
         </li>
       ))}

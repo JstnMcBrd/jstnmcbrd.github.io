@@ -1,8 +1,6 @@
 ---
-import GameJoltIcon from "~icons/simple-icons/gamejolt";
-import GithubIcon from "~icons/simple-icons/github";
-import NpmIcon from "~icons/simple-icons/npm";
-import ExternalLinkIcon from "~icons/lucide/external-link";
+import Icon from "./Icon.astro";
+import type { IconName } from "../icons";
 
 interface Props {
   title: string;
@@ -15,19 +13,19 @@ const { title, description, links, tags } = Astro.props;
 
 const linkEntries = links ? Object.entries(links) : [];
 
-const ICON_MAP: Record<string, typeof GithubIcon> = {
-  "github.com": GithubIcon,
-  "npmjs.com": NpmIcon,
-  "gamejolt.io": GameJoltIcon,
+const ICON_MAP: Record<string, IconName> = {
+  "github.com": "github",
+  "npmjs.com": "npm",
+  "gamejolt.io": "gamejolt",
 };
 
-function getIcon(href: string): typeof GithubIcon {
+function getIcon(href: string): IconName {
   try {
     const parts = new URL(href).hostname.split(".");
     const rootDomain = parts.slice(-2).join(".");
-    return ICON_MAP[rootDomain] ?? ExternalLinkIcon;
+    return ICON_MAP[rootDomain] ?? "external-link";
   } catch {
-    return ExternalLinkIcon;
+    return "external-link";
   }
 }
 ---
@@ -38,7 +36,7 @@ function getIcon(href: string): typeof GithubIcon {
     {linkEntries.length > 0 && (
       <div class="flex items-center gap-3 shrink-0">
         {linkEntries.map(([name, href]) => {
-          const LinkIcon = getIcon(href);
+          const icon = getIcon(href);
           return (
             <a
               href={href}
@@ -48,7 +46,7 @@ function getIcon(href: string): typeof GithubIcon {
               aria-label={name}
               class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
             >
-              <LinkIcon class="w-4 h-4" />
+              <Icon name={icon} class="w-4 h-4" />
             </a>
           );
         })}
