@@ -3,29 +3,21 @@ import GithubIcon from "~icons/simple-icons/github";
 import HuggingfaceIcon from "~icons/simple-icons/huggingface";
 import LinkedinIcon from "~icons/simple-icons/linkedin";
 import XIcon from "~icons/simple-icons/x";
+import ExternalLinkIcon from "~icons/lucide/external-link";
 
-const socialLinks = [
-  {
-    label: "GitHub",
-    href: "https://github.com/JstnMcBrd",
-    Icon: GithubIcon,
-  },
-  {
-    label: "Hugging Face",
-    href: "https://huggingface.co/JstnMcBrd",
-    Icon: HuggingfaceIcon,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/jstnmcbrd",
-    Icon: LinkedinIcon,
-  },
-  {
-    label: "X / Twitter",
-    href: "https://x.com/JstnMcBrd",
-    Icon: XIcon,
-  },
-];
+import { socialLinks } from "../profile";
+
+const ICONS: Record<string, typeof GithubIcon> = {
+  GitHub: GithubIcon,
+  "Hugging Face": HuggingfaceIcon,
+  LinkedIn: LinkedinIcon,
+  "X / Twitter": XIcon,
+};
+
+const links = socialLinks.map((link) => ({
+  ...link,
+  Icon: ICONS[link.label] ?? ExternalLinkIcon,
+}));
 ---
 
 <header class="w-full border-b border-neutral-200 dark:border-neutral-800">
@@ -34,7 +26,7 @@ const socialLinks = [
       <img src="/favicon.svg" width="20" height="20" alt="Home" />
     </a>
     <ul class="flex gap-5 list-none m-0 p-0">
-      {socialLinks.map((link) => (
+      {links.map((link) => (
         <li>
           <a
             href={link.href}

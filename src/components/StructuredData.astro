@@ -1,0 +1,32 @@
+---
+import { affiliation, description, jobTitle, knowsAbout, name, socialLinks } from "../profile";
+
+interface Props {
+  /** Canonical URL of the page this schema describes. */
+  url: URL;
+}
+
+const { url } = Astro.props;
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name,
+  description,
+  url: url.href,
+  jobTitle,
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: affiliation.name,
+    url: affiliation.url,
+  },
+  knowsAbout,
+  sameAs: socialLinks.map((link) => link.href),
+};
+
+// `set:html` does not escape, so neutralise any `</script>` that could appear
+// in the data and end the block early.
+const json = JSON.stringify(person).replaceAll("<", String.raw`<`);
+---
+
+<script type="application/ld+json" is:inline set:html={json} />
