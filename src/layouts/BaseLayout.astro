@@ -15,6 +15,10 @@ const {
   description = "Personal portfolio of Justin McBride.",
   noindex = false,
 } = Astro.props;
+
+// The 404 page is served for arbitrary paths, so a canonical URL built from the
+// current path would be wrong. Indexable pages get one; the 404 page does not.
+const canonicalUrl = noindex ? undefined : new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en" class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
@@ -24,8 +28,16 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Justin McBride" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
