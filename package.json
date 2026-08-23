@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@iconify-json/lucide": "^1.2.102",
+    "@iconify-json/lucide": "^1.2.124",
     "@iconify-json/simple-icons": "^1.2.77",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^24.13.3",
