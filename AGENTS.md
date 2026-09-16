@@ -29,6 +29,6 @@ This is a personal portfolio site built with [Astro](https://astro.build), Tailw
 
 **Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`.
 
-**Contrast** — Text colors must meet WCAG AA (4.5:1). Links inside body text also need a non-color cue (an underline), since the muted link color alone is under the 3:1 required against surrounding text.
+**Contrast** — Text colors must meet WCAG AA (4.5:1). Links inside body text also need a non-color cue, since the muted link color alone is under the 3:1 required against surrounding text; they use a heavier font weight rather than an underline.
 
 **TypeScript** — A single [tsconfig.json](tsconfig.json) covers everything — browser files in `src` and Node `*.config.ts` files in root. Browser and `node` types are shared for all files, matching Astro's own convention. Take care to not use Node-specific globals in browser files or browser-specific globals in Node files, because TypeScript will not catch it.

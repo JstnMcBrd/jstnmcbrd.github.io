@@ -7,9 +7,11 @@ const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-// Links inside body text need a non-color cue (underline) to be distinguishable.
+// Links inside body text need a non-color cue to be distinguishable from it.
+// A heavier weight than the surrounding paragraph is enough, and reads quieter
+// than an underline on a page that has none elsewhere.
 const inlineLinkClass =
-  "underline underline-offset-2 decoration-neutral-400 dark:decoration-neutral-500 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 hover:decoration-neutral-700 dark:hover:decoration-neutral-300 transition-colors";
+  "font-medium text-neutral-900 dark:text-neutral-100 hover:underline hover:underline-offset-2 transition-colors";
 ---
 
 <BaseLayout>
