@@ -27,8 +27,8 @@ This is a personal portfolio site built with [Astro](https://astro.build), Tailw
 
 **Icons** — `unplugin-icons` is wired in as a Vite plugin in `astro.config.ts`. Import icons individually as components from `~icons/<collection>/<icon>` and render as `<GithubIcon class="w-4 h-4" />`; only imported icons are bundled.
 
-**Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`. `build.inlineStylesheets: "always"` in [astro.config.ts](astro.config.ts) inlines the stylesheet into each page so there is no render-blocking CSS request — keep an eye on this if the CSS ever grows large.
+**Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`. `build.inlineStylesheets: "always"` in [astro.config.ts](astro.config.ts) inlines the stylesheet into each page so there is no render-blocking CSS request.
 
-**Contrast** — Text colors must meet WCAG AA (4.5:1). Against the light background (`white`) that rules out `text-neutral-400` and lighter; against the dark background (`neutral-950`) it rules out `text-neutral-500` and darker. The usual muted-text pairing is `text-neutral-500 dark:text-neutral-400`. Links inside body text also need a non-color cue (an underline), since the muted link color alone is under the 3:1 required against surrounding text.
+**Contrast** — Text colors must meet WCAG AA (4.5:1). Links inside body text also need a non-color cue (an underline), since the muted link color alone is under the 3:1 required against surrounding text.
 
 **TypeScript** — A single [tsconfig.json](tsconfig.json) covers everything — browser files in `src` and Node `*.config.ts` files in root. Browser and `node` types are shared for all files, matching Astro's own convention. Take care to not use Node-specific globals in browser files or browser-specific globals in Node files, because TypeScript will not catch it.
