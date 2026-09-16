@@ -2,7 +2,7 @@
 title: jstnmcbrd.github.io
 description: Personal portfolio website built with Astro and Tailwind CSS, developed using agentic coding.
 links:
-  Website: https://jstnmcbrd.github.io
+  Website: https://jstnmcbrd.dev
   Source: https://github.com/JstnMcBrd/jstnmcbrd.github.io
 tags:
   - Astro
