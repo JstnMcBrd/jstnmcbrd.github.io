@@ -8,7 +8,7 @@ const projects = (await getCollection("projects")).sort(
 );
 
 const inlineLinkClass =
-  "text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors";
+  "font-medium text-neutral-900 dark:text-neutral-100 hover:underline hover:underline-offset-2 transition-colors";
 ---
 
 <BaseLayout>
@@ -25,11 +25,11 @@ const inlineLinkClass =
   </section>
 
   <section id="projects">
-    <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-500 mb-4">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400 mb-4">
       Projects
     </h2>
     {projects.length === 0 ? (
-      <p class="text-sm text-neutral-500 dark:text-neutral-500">No projects yet.</p>
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">No projects yet.</p>
     ) : (
       <div>
         {projects.map((project) => (
