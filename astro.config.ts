@@ -4,7 +4,7 @@ import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jstnmcbrd.github.io",
+  site: "https://jstnmcbrd.dev",
   vite: {
     plugins: [tailwindcss(), Icons({ compiler: "astro" })],
   },
