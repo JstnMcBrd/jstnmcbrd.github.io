@@ -10,7 +10,7 @@
     "fmt": "oxfmt"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.10",
     "@iconify-json/lucide": "^1.2.102",
     "@iconify-json/simple-icons": "^1.2.77",
     "@tailwindcss/vite": "^4.2.2",
