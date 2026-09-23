@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    // Note: mixing Node and browser types could be dangerous, but it's the recommended approach for Astro
+    // Astro recommends shared Node and browser types. TypeScript cannot catch a global used in the wrong environment.
     "types": ["unplugin-icons/types/astro", "node"]
   }
 }

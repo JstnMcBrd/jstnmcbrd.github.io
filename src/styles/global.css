@@ -15,7 +15,7 @@
     -webkit-text-size-adjust: 100%;
   }
 
-  /* Subtle focus ring for accessibility */
+  /* Show a focus ring for keyboard navigation */
   :focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 3px;

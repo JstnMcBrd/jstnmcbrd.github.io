@@ -1,34 +1,29 @@
 # AGENTS.md
 
-This file provides guidance to AI coding agents working with code in this repository.
+Guidance for AI coding agents in this repository.
 
-Keep `AGENTS.md` and `README.md` up-to-date whenever you modify the project.
+When you change the project, update `AGENTS.md` and `README.md` to match.
 
 ## Commands
 
 ```bash
-npm run dev       # Start dev server at localhost:4321
+npm run dev       # Start the dev server at localhost:4321
 npm run build     # Build to dist/
-npm run preview   # Preview the production build locally
-npm run check     # Type-check all Astro/TS files via astro check
+npm run preview   # Serve the production build
+npm run check     # Type-check with astro check
 npm run lint      # Lint with oxlint
-npm run fmt       # Format all files with oxfmt (writes in place)
+npm run fmt       # Format with oxfmt (writes in place)
 ```
 
-**After editing files, always run `npm run fmt`, `npm run lint`, and `npm run check`.**
+After you edit files, run `npm run fmt`, `npm run lint`, and `npm run check`.
 
 ## Architecture
 
-This is a personal portfolio site built with [Astro](https://astro.build), Tailwind CSS (via `@tailwindcss/vite`), and `unplugin-icons` for SVG icons from the `simple-icons` and `lucide` sets.
+A personal portfolio site built with [Astro](https://astro.build), Tailwind CSS, and `unplugin-icons`.
 
-**Content layer** — Projects are defined as Markdown files in `src/content/projects/`. The schema is in [src/content.config.ts](src/content.config.ts): each file requires `title`, `description`, and `date`; `links` and `tags` are optional. The index page queries this collection via `getCollection('projects')` and sorts by date descending.
-
-**Layout** — `BaseLayout.astro` wraps every page with a `<Header>`, `<Footer>`, and a centered `max-w-2xl` main column. Pages pass optional `title` and `description` props for `<head>` metadata.
-
-**Icons** — `unplugin-icons` is wired in as a Vite plugin in `astro.config.ts`. Import icons individually as components from `~icons/<collection>/<icon>` and render as `<GithubIcon class="w-4 h-4" />`; only imported icons are bundled.
-
-**Styling** — Tailwind is wired in as a Vite plugin; there is no `tailwind.config.*` file. Global base styles live in `src/styles/global.css`.
-
-**Contrast** — Text colors must meet WCAG AA (4.5:1). Links inside body text also need a non-color cue, since the muted link color alone is under the 3:1 required against surrounding text; they use a heavier font weight rather than an underline.
-
-**TypeScript** — A single [tsconfig.json](tsconfig.json) covers everything — browser files in `src` and Node `*.config.ts` files in root. Browser and `node` types are shared for all files, matching Astro's own convention. Take care to not use Node-specific globals in browser files or browser-specific globals in Node files, because TypeScript will not catch it.
+- **Content** — Each project is a Markdown file in `src/content/projects/`. The schema is in [src/content.config.ts](src/content.config.ts). The index page lists the projects by date, newest first.
+- **Layout** — `BaseLayout.astro` wraps every page in a header, a footer, and a centered `max-w-2xl` column. Pages can pass `title` and `description` props for `<head>` metadata.
+- **Icons** — Icons come from the `simple-icons` and `lucide` sets. Import each icon as a component from `~icons/<collection>/<icon>` and render it as `<GithubIcon class="w-4 h-4" />`. The build includes only imported icons.
+- **Styling** — Tailwind runs as a Vite plugin, so there is no `tailwind.config.*` file. Global base styles are in `src/styles/global.css`.
+- **Contrast** — Text colors must meet WCAG AA (4.5:1). The muted link color is below 3:1 against body text, so links in body text also need a non-color cue. Use a heavier font weight for this cue, not an underline.
+- **TypeScript** — One [tsconfig.json](tsconfig.json) covers the browser files in `src` and the Node `*.config.ts` files in the root. All files share browser and Node types, as Astro recommends. TypeScript cannot catch a Node global in a browser file or a browser global in a Node file, so check for this yourself.

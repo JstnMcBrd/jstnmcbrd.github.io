@@ -9,7 +9,7 @@ on:
 
 permissions: {}
 
-# Only allow one deployment at a time
+# Run one deployment at a time
 concurrency:
   group: pages
   cancel-in-progress: false
