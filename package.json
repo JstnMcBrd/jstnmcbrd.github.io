@@ -18,7 +18,7 @@
     "astro": "7.3.8",
     "oxfmt": "0.72.0",
     "oxlint": "1.59.0",
-    "oxlint-tsgolint": "0.20.0",
+    "oxlint-tsgolint": "0.25.0",
     "tailwindcss": "4.2.2",
     "typescript": "6.0.3",
     "unplugin-icons": "24.0.0"
