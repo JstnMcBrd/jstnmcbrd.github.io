@@ -3,14 +3,14 @@
   "extends": ["config:best-practices", "config:js-app", ":disableRateLimiting"],
   "packageRules": [
     {
+      "description": "Keep devEngines version ranges instead of pinning them, as the pinAllExceptPeerDependencies preset (in config:js-app) exempts engines but not devEngines. Remove once the preset is fixed: https://github.com/renovatebot/renovate/discussions/46989",
+      "matchDepTypes": ["devEngines.*"],
+      "rangeStrategy": "auto"
+    },
+    {
       "description": "Update the lockfile with npm 11, because npm 12 fails on packages with bundled dependencies. Remove once fixed: https://github.com/npm/cli/issues/9800",
       "matchManagers": ["npm"],
       "constraints": { "npm": "<12" }
-    },
-    {
-      "description": "Let Renovate update devEngines versions. Remove once fixed: https://github.com/renovatebot/renovate/discussions/46989",
-      "matchDepTypes": ["devEngines.*"],
-      "rangeStrategy": "auto"
     }
   ]
 }
