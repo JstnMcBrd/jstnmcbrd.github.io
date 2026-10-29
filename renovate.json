@@ -3,7 +3,7 @@
   "extends": ["config:best-practices", "config:js-app", ":disableRateLimiting"],
   "packageRules": [
     {
-      "description": "Keep devEngines version ranges instead of pinning them. The pinAllExceptPeerDependencies preset already does this for engines. Remove once devEngines is added to the preset: https://github.com/renovatebot/renovate/discussions/46989",
+      "description": "Keep devEngines version ranges instead of pinning them. The pinAllExceptPeerDependencies preset already does this for engines. Remove once fixed: https://github.com/renovatebot/renovate/discussions/46989",
       "matchDepTypes": ["devEngines.*"],
       "rangeStrategy": "auto"
     },
