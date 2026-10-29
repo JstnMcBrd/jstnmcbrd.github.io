@@ -10,7 +10,7 @@
     {
       "description": "Update the lockfile with npm 11, because npm 12 fails on packages with bundled dependencies. Remove once fixed: https://github.com/npm/cli/issues/9800",
       "matchManagers": ["npm"],
-      "constraints": { "npm": "<12" }
+      "constraints": { "npm": "11.21.1" }
     }
   ]
 }
