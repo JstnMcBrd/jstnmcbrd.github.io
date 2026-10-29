@@ -23,6 +23,7 @@
     "typescript": "6.0.3",
     "unplugin-icons": "24.0.0"
   },
+  "packageManager": "npm@11.21.1",
   "devEngines": {
     "runtime": {
       "name": "node",
