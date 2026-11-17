@@ -20,7 +20,7 @@
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "0.25.0",
     "tailwindcss": "4.2.2",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "unplugin-icons": "24.0.0"
   },
   "devEngines": {
